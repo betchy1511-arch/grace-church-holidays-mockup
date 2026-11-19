@@ -58,7 +58,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:5}
 
 /* hero */
 .hero{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;padding:150px 0 72px;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:url(img/hero.jpg) center 35%/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:url(img/xmas-hero.jpg) center 45%/cover no-repeat}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,28,.72) 0%,rgba(28,28,28,.62) 40%,rgba(28,28,28,.94) 80%,var(--ink) 100%)}
 .hero .wrap{position:relative;z-index:1;width:100%}
 .hero p{font-size:clamp(18px,2vw,22px);color:rgba(255,255,255,.9);margin-top:18px;max-width:46ch}
@@ -78,8 +78,9 @@ section{padding:110px 0}
 .split{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
 .split.flip .media{order:2}
 .media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:32px}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
-.facts > div{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px 18px 20px}
+.facts{display:grid;grid-template-columns:auto 1fr auto;gap:12px;margin-top:30px}
+.facts > div:first-child dd,.facts > div:last-child dd{white-space:nowrap}
+.facts > div{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px 18px 20px;display:flex;flex-direction:column;justify-content:center}
 .facts dt{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
 .facts dd{font-size:17px;line-height:1.35;color:var(--white);margin-top:8px}
 
@@ -105,7 +106,19 @@ section{padding:110px 0}
 .eve .addr{margin-top:22px;font-size:17px;color:#3a3a3a}
 
 /* fund band */
-.fund{background:var(--panel);border-radius:40px;padding:72px 64px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+.fund{background:var(--panel);border-radius:40px;padding:72px 64px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.uses{display:grid;gap:14px}
+.uses .label{margin-bottom:2px}
+.use{display:flex;gap:16px;align-items:center;background:var(--ink);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:18px 20px;transition:border-color .25s,transform .25s}
+.use:hover{border-color:var(--sage);transform:translateY(-2px)}
+.use .ic{flex:0 0 52px;height:52px;border-radius:16px;background:var(--sage);color:var(--ink);display:grid;place-items:center}
+.use .ic svg{width:28px;height:28px}
+.use strong{display:block;font-size:18px;font-weight:500;color:var(--white);line-height:1.25}
+.use span:not(.ic){display:block;font-size:15px;color:var(--muted);margin-top:4px;line-height:1.4}
+.alt{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:4px;padding:16px 20px;border-radius:22px;border:1px dashed rgba(192,206,173,.4)}
+.alt p{font-size:15px;margin:0}
+.alt a{display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border-radius:999px;border:1.5px solid var(--sage);color:var(--sage);font-weight:700;font-size:14px;text-decoration:none;transition:background .25s,color .25s}
+.alt a:hover,.alt a:focus-visible{background:var(--sage);color:var(--ink)}
 .fund-head{grid-column:1/-1;margin-bottom:-24px}
 .fund ul{list-style:none;display:grid;gap:14px}
 .fund li{display:flex;gap:14px;align-items:flex-start;font-size:17px;color:var(--white)}
@@ -131,7 +144,17 @@ footer a:hover{color:var(--sage)}
 .hero .btns{animation-delay:.36s}
 .hero::before{animation:zoom 14s ease-out both}
 @keyframes zoom{from{transform:scale(1.08)}to{transform:scale(1)}}
-.js .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal{opacity:0;transform:translateY(70px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .media.reveal{transform:translateX(-90px) scale(.92)}
+.js .split.flip .media.reveal,.js .join .media.reveal{transform:translateX(90px) scale(.92)}
+.js .tree-wrap.reveal{transform:translateY(60px) scale(.8)}
+.js .reveal > *{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .reveal:not(.in) > .label,.js .reveal:not(.in) > h2,.js .reveal:not(.in) > p,.js .reveal:not(.in) > .facts,.js .reveal:not(.in) > .btns{opacity:0;transform:translateY(24px)}
+.js .reveal.in > h2{transition-delay:.12s}.js .reveal.in > p{transition-delay:.22s}.js .reveal.in > .facts,.js .reveal.in > .times{transition-delay:.32s}.js .reveal.in > .btns{transition-delay:.42s}
+.media img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.media:hover img{transform:scale(1.03)}
+.tree .twinkle{transform-origin:160px 40px}
+.tree-wrap:hover .tree{transform:rotate(-2deg)}.tree{transition:transform .6s ease}
 .js .reveal.in{opacity:1;transform:none}
 .js .date.reveal.in:hover{transform:translateY(-3px)}
 .date{transition:border-color .25s,transform .25s,background .25s}
@@ -162,6 +185,7 @@ footer a:hover{color:var(--sage)}
   .hero{min-height:88vh;padding:120px 0 48px}
   .btns .btn{width:100%}
   .facts{grid-template-columns:1fr}
+  .js .media.reveal,.js .split.flip .media.reveal,.js .join .media.reveal{transform:translateY(60px) scale(.94)}
   .times{flex-direction:row}
   .oneline{white-space:normal}
   .tree{max-width:220px}
@@ -254,7 +278,7 @@ footer a:hover{color:var(--sage)}
 
   <section id="foster-care">
     <div class="wrap split flip">
-      <div class="media"><img src="img/worship.jpg" alt="Grace Church gathering with a guitarist leading worship" style="filter:brightness(1.25)" loading="lazy" width="1400" height="933"></div>
+      <div class="media"><img src="img/xmas-gifts.jpg" alt="Wrapped Christmas presents with red ribbon beside a tree" loading="lazy" width="1400" height="933"></div>
       <div>
         <span class="label">Community Partnership</span>
         <h2>Gifts for Children in Foster Care</h2>
@@ -277,11 +301,10 @@ footer a:hover{color:var(--sage)}
             <a class="btn" href="https://gracechurchla.churchcenter.com/giving/to/holidays">Give to the Holidays Fund</a>
           </div>
         </div>
-        <div>
-          <ul>
-            <li>Gifts for children in foster care, with Crossroads in New Orleans</li>
-          </ul>
-          <p class="note">Want to give to the church's ongoing work instead? <a href="https://gracechurchla.churchcenter.com/giving" style="color:var(--sage);font-weight:700">Give to Grace</a></p>
+        <div class="uses">
+          <span class="label">Where Your Gift Goes</span>
+          <div class="use"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="7" width="18" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v13" stroke="currentColor" stroke-width="1.8"/><path d="M12 7c-1.5-3-5-3-4.5-.8.3 1.2 4.5.8 4.5.8zm0 0c1.5-3 5-3 4.5-.8-.3 1.2-4.5.8-4.5.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span><div><strong>Gifts for Children in Foster Care</strong><span>With Crossroads in New Orleans, for children throughout our city</span></div></div>
+          <div class="alt"><p>Prefer to give to the church's ongoing work?</p><a href="https://gracechurchla.churchcenter.com/giving">Give to Grace</a></div>
         </div>
       </div>
     </div>
@@ -323,7 +346,7 @@ footer a:hover{color:var(--sage)}
 <div class="mock">MOCKUP, Option 1, Page 2: Christmas</div>
 <script>
 (function(){
-  var targets=document.querySelectorAll('.date, .split > *, .eve > *, .fund, .join .grid > *');
+  var targets=document.querySelectorAll('.date, .split > *, .eve > *, .fund, .use, .join .grid > *');
   if(!('IntersectionObserver' in window)) return;
   document.documentElement.classList.add('js');
   targets.forEach(function(el,i){
