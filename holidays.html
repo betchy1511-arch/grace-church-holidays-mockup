@@ -49,7 +49,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}
 /* hero */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:140px 0 200px;overflow:hidden;isolation:isolate}
 .hero .bg{position:absolute;inset:-4%;background-size:cover;background-position:center;z-index:-2;animation:kenburns 22s ease-out both}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(28,28,28,.92) 0%,rgba(28,28,28,.72) 45%,rgba(28,28,28,.25) 100%),linear-gradient(180deg,rgba(28,28,28,.4) 0%,transparent 30%,transparent 70%,var(--ink) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(28,28,28,.92) 0%,rgba(28,28,28,.72) 45%,rgba(28,28,28,.25) 100%),linear-gradient(180deg,rgba(28,28,28,.85) 0%,rgba(28,28,28,.35) 22%,transparent 40%,transparent 70%,var(--ink) 100%)}
 @keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
 .hero .wrap{width:100%}
 .hero .lede{font-size:clamp(18px,1.9vw,22px);color:rgba(255,255,255,.9);margin-top:22px;max-width:44ch}
@@ -172,7 +172,7 @@ footer a:hover{color:var(--sage)}
   .cal{margin-top:-110px}
   .tile{padding:18px;gap:16px}
   .datebox{width:72px}.datebox .d{font-size:32px}
-  section{padding:80px 0}.eve{padding:90px 0}
+  section{padding:80px 0}.eve{padding:80px 0 56px}
   .facts{grid-template-columns:1fr}
   .times{flex-direction:row}
   .tree{max-width:220px}.tree-wrap{order:-1}
@@ -204,7 +204,7 @@ footer a:hover{color:var(--sage)}
     <span class="label">Thanksgiving Morning</span>
     <h2>The Bag of Grace</h2>
     <p>On Thanksgiving morning, Grace Church is bringing a Bag of Grace to every patient at Manning Family Children's Hospital.</p>
-    <p>Each tote bag is filled with toys, activities, and gifts to bring patients and their families a smile.</p>
+    <p>Each tote bag will be filled with toys, activities, and gifts to bring patients and their families a smile.</p>
     <dl class="facts"><div><dt>When</dt><dd>Thu, Nov 26</dd></div><div><dt>Where</dt><dd>Manning Family Children's Hospital</dd></div><div><dt>Who</dt><dd>Every patient</dd></div></dl>
   </div></div></section><section class="eve" id="christmas-eve"><div class="bg" role="img" aria-label="Glowing Christmas tree lights"></div><div class="snow"></div><div class="snow s2"></div>
   <div class="wrap eve-grid">
@@ -213,7 +213,7 @@ footer a:hover{color:var(--sage)}
       <h2>Celebrate Christmas Eve With Us</h2>
       <p>We are holding two Christmas Eve services on Thursday, December 24. Come as you are. We would love to celebrate with you.</p>
       <div class="times"><div class="time"><strong>2:00<small>PM</small></strong><span>Thursday, Dec 24</span></div><div class="time"><strong>3:30<small>PM</small></strong><span>Thursday, Dec 24</span></div></div>
-      <p class="addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg><span><strong>1108 Shrewsbury Rd, Jefferson, LA 70121</strong><br>at Dr. John Ochsner Discovery School</span></p>
+      <p class="addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></svg><span><strong>1108 Shrewsbury Rd, Jefferson, LA&nbsp;70121</strong><br>at Dr. John Ochsner Discovery School</span></p>
       <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=1108+Shrewsbury+Rd+Jefferson+LA+70121">Get Directions</a></div>
     </div>
     <div class="tree-wrap rv r"><svg class="tree" viewBox="0 0 320 380" role="img" aria-label="Illustrated Christmas tree">
