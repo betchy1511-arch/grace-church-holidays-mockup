@@ -11,14 +11,15 @@
 <style>
 :root{--ink:#1C1C1C;--panel:#303030;--mid:#4D4D4D;--light:#EEEEEE;--white:#fff;--sage:#C0CEAD;--sage-dark:#A9BA93;--gold:#EAB33B;--olive:#636B2F;--muted:rgba(255,255,255,.78);--wrap:1200px;--gut:24px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:"DM Sans",system-ui,sans-serif;background:var(--ink);color:var(--white);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
 .label{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage)}
 h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1.02}
-h1{font-size:clamp(46px,8vw,104px)}
+h1{font-size:clamp(44px,8vw,104px)}
+.hero h1{white-space:nowrap;font-size:clamp(40px,5.9vw,92px)}
 h2{font-size:clamp(32px,4.6vw,58px);margin:12px 0 18px}
 p{font-size:18px;color:var(--muted);max-width:60ch}
 p+p{margin-top:14px}
@@ -49,10 +50,12 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}
 /* hero */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:140px 0 200px;overflow:hidden;isolation:isolate}
 .hero .bg{position:absolute;inset:-4%;background-size:cover;background-position:center;z-index:-2;animation:kenburns 22s ease-out both}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(28,28,28,.92) 0%,rgba(28,28,28,.72) 45%,rgba(28,28,28,.25) 100%),linear-gradient(180deg,rgba(28,28,28,.85) 0%,rgba(28,28,28,.35) 22%,transparent 40%,transparent 70%,var(--ink) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(28,28,28,.9) 0%,rgba(28,28,28,.72) 55%,rgba(28,28,28,.5) 100%),linear-gradient(180deg,rgba(28,28,28,.85) 0%,rgba(28,28,28,.35) 22%,transparent 40%,transparent 70%,var(--ink) 100%)}
 @keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
 .hero .wrap{width:100%}
-.hero .lede{font-size:clamp(18px,1.9vw,22px);color:rgba(255,255,255,.9);margin-top:22px;max-width:44ch}
+.hero .lede{font-size:clamp(18px,1.7vw,23px);color:rgba(255,255,255,.9);margin-top:24px;max-width:none;width:min(100%,980px)}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:34px}
+.hero-row .count,.hero-row .btns{margin-top:0}
 .count{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .chip{display:inline-flex;align-items:baseline;gap:10px;padding:12px 18px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .chip b{font-size:30px;font-weight:500;letter-spacing:-.02em;color:var(--white);font-variant-numeric:tabular-nums}
@@ -152,7 +155,7 @@ footer a:hover{color:var(--sage)}
 .hero .a{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
 .hero .a1{animation-delay:.15s}.hero .a2{animation-delay:.3s}.hero .a3{animation-delay:.45s}.hero .a4{animation-delay:.6s}
 @keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv,.js .rv.l,.js .rv.r{opacity:1;transform:none}}
 
 @media (max-width:1000px){
   .split,.eve-grid,.fund,.join .split{grid-template-columns:1fr;gap:48px}
@@ -167,6 +170,7 @@ footer a:hover{color:var(--sage)}
   .nav{height:84px}.nav .logo img{height:48px}
   .nav nav>ul{display:none}.menu{display:block}
   .hero{padding:120px 0 170px}
+  .hero h1{white-space:normal}
   .scrollcue{display:none}
   .btns .btn{width:100%}
   .cal{margin-top:-110px}
@@ -191,10 +195,10 @@ footer a:hover{color:var(--sage)}
 <div class="hero"><div class="bg" style="background-image:url(img/holidays-hero.jpg)"></div>
   <div class="wrap">
     <span class="label a">Thanksgiving and Christmas 2026</span>
-    <h1 class="a a1">The Holidays at<br>Grace Church</h1>
+    <h1 class="a a1">The Holidays at Grace Church</h1>
     <p class="lede a a2">A Bag of Grace for every patient at Manning Family Children's Hospital, gifts for children in foster care, and two Christmas Eve services. Come celebrate with us, and help us serve our city.</p>
-    <div class="count a a3"><span class="chip" data-until="2026-11-26" data-after="Happy Thanksgiving"><b>0</b><span>days until Thanksgiving</span></span><span class="chip" data-until="2026-12-24" data-after="Merry Christmas Eve"><b>0</b><span>days until Christmas Eve</span></span></div>
-    <div class="btns a a4"><a class="btn" href="https://gracechurchla.churchcenter.com/giving/to/holidays"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="currentColor"/></svg>Give to the Holidays Fund</a><a class="btn" href="#christmas-eve">Christmas Eve Times</a></div>
+    <div class="hero-row"><div class="count a a3"><span class="chip" data-until="2026-11-26" data-after="Happy Thanksgiving"><b>0</b><span>days until Thanksgiving</span></span><span class="chip" data-until="2026-12-24" data-after="Merry Christmas Eve"><b>0</b><span>days until Christmas Eve</span></span></div>
+    <div class="btns a a4"><a class="btn" href="https://gracechurchla.churchcenter.com/giving/to/holidays"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="currentColor"/></svg>Give to the Holidays Fund</a><a class="btn" href="#christmas-eve">Christmas Eve Times</a></div></div>
   </div>
   <span class="scrollcue" aria-hidden="true"></span>
 </div><div class="wrap"><div class="cal" style="--n:3"><a class="tile rv" href="#bag-of-grace"><span class="datebox"><span class="m">NOV</span><span class="d">26</span><span class="w">THU</span></span><span><span class="k">Thanksgiving Morning</span><h3>The Bag of Grace</h3><span class="s">Manning Family Children's Hospital</span><br><span class="go">How It Works</span></span></a><a class="tile rv" href="#christmas-eve"><span class="datebox"><span class="m">DEC</span><span class="d">24</span><span class="w">THU</span></span><span><span class="k">Christmas Eve</span><h3>Christmas Eve Services</h3><span class="s">2:00 PM and 3:30 PM</span><br><span class="go">See Times</span></span></a><a class="tile rv" href="#foster-care"><span class="datebox star"><span class="m">GIVE</span><span class="d">&#9733;</span><span class="w">HOLIDAYS</span></span><span><span class="k">Community Partnership</span><h3>Gifts for Children in Foster Care</h3><span class="s">With Crossroads in New Orleans</span><br><span class="go">How to Help</span></span></a></div></div><section id="bag-of-grace"><div class="wrap split">
