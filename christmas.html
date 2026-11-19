@@ -80,6 +80,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:10}
 .tile .go{display:inline-flex;margin-top:12px;padding:6px 14px;border-radius:999px;border:1.5px solid var(--sage);font-size:13px;font-weight:700;color:var(--sage);transition:background .25s,color .25s}
 .tile:hover .go{background:var(--sage);color:var(--ink)}
 .tile.wide{grid-template-columns:auto auto 1fr}
+.tile h3,.tile .k,.tile .s,.tile .more b{text-wrap:balance}
 .tile>span:nth-child(2){display:flex;flex-direction:column;align-items:flex-start;align-self:stretch;justify-content:center}
 .cal:not([style*='--n:1']) .tile>span:nth-child(2){justify-content:flex-start}
 .cal:not([style*='--n:1']) .tile .go{margin-top:auto}
